@@ -1,0 +1,11 @@
+version: '2'
+services:
+  kanai-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/kanai/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=kanai
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
