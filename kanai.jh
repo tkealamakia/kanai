@@ -1,0 +1,29 @@
+entity Document {
+	title String
+  content TextBlob required
+	shared Boolean
+  date LocalDate
+  createdDate Instant required
+  modifiedDate Instant
+    
+}
+
+entity File {
+	title String
+  content AnyBlob required
+  shared Boolean
+  createdDate Instant required
+  modifiedDate Instant
+}
+
+entity Tag {
+  name String required
+}
+
+relationship ManyToMany {
+	Document{file} to File{document},
+  Document{tag} to Tag{document}
+}
+
+service * with serviceClass
+paginate Document, File, Tag with pagination
